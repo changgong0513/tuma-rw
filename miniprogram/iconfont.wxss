@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 799696 */
+  src: url('//at.alicdn.com/t/font_799696_e6jcugi8vot.eot');
+  src: url('//at.alicdn.com/t/font_799696_e6jcugi8vot.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_799696_e6jcugi8vot.woff') format('woff'),
+  url('//at.alicdn.com/t/font_799696_e6jcugi8vot.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_799696_e6jcugi8vot.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xing:before{content: "\e698"}

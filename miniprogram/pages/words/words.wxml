@@ -1,0 +1,63 @@
+<view class='main'>
+    <view class='header'>
+        <view>
+            <van-cell title="牛津儿童英语" border="{{ false }}" title-class="btnOffset">
+                <view style="display: inline;">
+                    <van-button type="warning" size="mini" slot="right-icon">新建</van-button>
+                </view>
+                <view style="display: inline; margin-left: 3rpx;">
+                    <van-button type="primary" size="mini" slot="right-icon">编辑</van-button>
+                </view>
+            </van-cell>
+        </view>
+    </view>
+    <view class='body'>
+        <audio id="myAudio" src="http://dict.youdao.com/dictvoice?audio=perfect" />
+        <view>
+            <van-tabs animated>
+                <van-tab title="单词本">
+                    <view >
+                    <van-row>
+                        <van-col span="4">
+                            <van-cell
+                                border="{{ false }}">
+                                <!-- Cell 单元格：自定义value显示内容 -->
+                                <view>
+                                    <!-- Cell 单元格：Checkbox 复选框 -->
+                                    <van-checkbox 
+                                        value="{{ checked }}"
+                                        shape="square" />
+                                </view>
+                            </van-cell>
+                        </van-col>
+                        <van-col span="20">
+                            <van-cell
+                                border="{{ true }}">
+                                <!-- Cell 单元格：自定义title显示内容 -->
+                                <view slot="title">
+                                    <span style="padding-right: 5px;">perfect</span>
+                                    <view style="display: inline-block;">
+                                        <van-icon name="play" color="#00ff00" bind:click="speakTest" />
+                                    </view>
+                                    <view>
+                                        <van-tag round type="primary">考察次数：5</van-tag>
+                                    </view>
+                                </view>
+                                <!-- Cell 单元格：自定义value显示内容 -->
+                                <view>
+                                    <view style="text-align: left;">{{wordTranslate1}}</view>
+                                    <view style="text-align: left;">{{wordTranslate2}}</view>
+                                </view>
+                            </van-cell>
+                        </van-col>
+                    </van-row>
+                    </view>
+                </van-tab>
+                <van-tab title="错词本">
+                </van-tab>
+            </van-tabs>
+        </view>
+    </view>
+    <view class='footer'>
+    </view>
+</view>

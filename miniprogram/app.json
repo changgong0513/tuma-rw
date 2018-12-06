@@ -1,0 +1,51 @@
+{
+  "usingComponents": {
+    "ec-canvas": "echarts/ec-canvas/ec-canvas",
+    "i-button": "miniprogram_npm/iview-weapp/button/index",
+    "van-button": "miniprogram_npm/vant-weapp/button/index",
+    "van-row": "miniprogram_npm/vant-weapp/row/index",
+    "van-col": "miniprogram_npm/vant-weapp/col/index",
+    "van-tag": "miniprogram_npm/vant-weapp/tag/index",
+    "van-badge": "miniprogram_npm/vant-weapp/badge/index",
+    "van-rate": "miniprogram_npm/vant-weapp/rate/index",
+    "van-cell": "miniprogram_npm/vant-weapp/cell/index",
+    "van-cell-group": "miniprogram_npm/vant-weapp/cell-group/index",
+    "van-tab": "miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "miniprogram_npm/vant-weapp/tabs/index",
+    "van-icon": "miniprogram_npm/vant-weapp/icon/index",
+    "van-checkbox": "miniprogram_npm/vant-weapp/checkbox/index",
+    "van-checkbox-group": "miniprogram_npm/vant-weapp/checkbox-group/index"
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/words/words",
+    "pages/start/start"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "兔马背单词",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#ffa589",
+    "backgroundColor": "#eeeeee",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon_home.png",
+        "selectedIconPath": "images/icon_home_active.png"
+      },
+      {
+        "pagePath": "pages/words/words",
+        "text": "单词本",
+        "iconPath": "images/icon_words.png",
+        "selectedIconPath": "images/icon_words_active.png"
+      }
+    ]
+  }
+}

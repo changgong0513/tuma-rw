@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "van-button": "vant-weapp/button",
+        "van-row": "vant-weapp/row",
+        "van-col": "vant-weapp/col",
+        "van-tag": "vant-weapp/tag",
+        "van-badge": "vant-weapp/badge",
+        "van-rate": "vant-weapp/rate"
+      }
+}

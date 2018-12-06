@@ -1,0 +1,12 @@
+.header {
+    margin-bottom: 10rpx;
+}
+
+.body {
+    margin-bottom: 10rpx;
+}
+
+.btnOffset {
+    margin-top: 10rpx;
+}
+

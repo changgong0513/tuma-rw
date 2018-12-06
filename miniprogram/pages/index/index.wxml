@@ -1,0 +1,115 @@
+<view class='main'>
+    <view class='header'>
+      <van-row>
+      <van-col span="6">
+        <view style='text-align: center; margin: 16rpx;'>
+          <van-button plain type="warning" size='small'>商城</van-button>
+        </view>
+      </van-col>
+      <van-col span="12">
+        <view style='text-align: center; margin: 26rpx; font-size: 16px;'>
+          <text>{{wordSource}}</text>
+        </view>
+      </van-col>
+      <van-col span="6">
+        <view style='text-align: center; margin: 16rpx;'>
+          <van-button plain type="warning" size='small'>设置</van-button>
+        </view>
+      </van-col>
+    </van-row>
+  </view>
+  <view class='body' style="height: {{calcHeight}}rpx;">
+    <view>
+      <!-- 等级、单词量 -->
+      <van-row>
+        <van-col span="14">
+          <view class="body-firstrow__levelnumber">
+            <view><text style="font-size: 28rpx;">{{levelName}}</text></view>
+            <view style="margin-left: 10rpx;">
+              <van-rate 
+                value="{{level}}" 
+                count="{{ maxLevel }}" 
+                color="#2ba" void-color="#ceefe8" 
+                readonly="true" 
+                size="10"/>
+              </view>
+          </view>
+        </van-col>
+        <van-col span="10">
+          <view style='text-align: center; margin: 15rpx 0rpx 15rpx 28rpx;'>
+            <van-tag mark type="primary" size="large">单词量：{{wordCounts}}</van-tag>
+          </view>
+        </van-col>
+      </van-row>
+      <!-- 打卡天数、学习单词数据量 -->
+      <van-row>
+        <van-col span="12">
+          <view style="text-align: left; margin: 20rpx; padding-left: 20rpx;">
+              <view><text style="font-size: 28rpx;">打卡天数</text></view>
+              <van-button round type="danger" size="mini">签到</van-button>
+          </view>
+        </van-col>
+        <van-col span="12">
+        <view style='text-align: center; margin: 20rpx;'>
+            <view style='text-align: right; padding-right: 20rpx;'>
+              <text style="font-size: 28rpx;">学习单词数据量</text>
+            </view>
+            <view style="text-align: right; padding-right: 100rpx;">
+              <text style="font-size: 28rpx;">{{studyWordCounts}}</text>
+            </view>
+          </view>
+        </van-col>
+      </van-row>
+      <!-- 今天单词、复习单词和剩余单词 -->
+      <van-row>
+        <van-col span="8">
+          <view>
+            <view 
+              style="text-align: left; padding-left: 40rpx;">
+              <text style="font-size: 28rpx;">今天单词</text>
+            </view>
+            <view style="text-align: left; padding-left: 80rpx;">
+              <text style="font-size: 28rpx;">{{todayWordCounts}}</text>
+            </view>
+          </view>
+        </van-col>
+        <van-col span="8">
+          <view style="text-align: center;">
+            <view><text style="font-size: 28rpx;">复习单词</text></view>
+            <view style="text-align: center">
+              <text style="font-size: 28rpx;">{{reviewWordCounts}}</text>
+            </view>
+          </view>
+        </van-col>
+        <van-col span="8">
+          <view>
+            <view style="text-align: right; padding-right: 40rpx;">
+              <text style="font-size: 28rpx;">剩余单词</text>
+            </view>
+            <view style="text-align: right; padding-right: 90rpx;">
+              <text style="font-size: 28rpx;">{{remainWordCounts}}</text>
+            </view>
+          </view>
+        </van-col>
+      </van-row>
+      <!-- echart展示 -->
+      <van-row>
+        <van-col span="24">
+          <view class="echarts-container">
+              <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" 
+                style="width:100%; height:500rpx;"></ec-canvas>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <view class='footer'>
+    <view style="text-align: center;">
+      <van-button 
+        type="primary" 
+        custom-class="startStudyBtn"
+        bind:click="startStudy">开始学习</van-button>
+    </view>
+  </view>
+</view>
+  

@@ -1,0 +1,17 @@
+.header-view__vancol__fontsize {
+    font-size: 36rpx;
+}
+
+
+.footer-view__layout {
+    display: flex; 
+    flex-direction: row;
+}
+
+.footer-btn__width {
+    width: 375rpx;
+}
+
+.body-viewcheckbox__cell__title {
+    text-align: left;
+}

@@ -1,0 +1,36 @@
+<view class="main">
+    <view class="header">
+        <view style="text-align: center;">
+            <van-cell title-class="header-view__vancol__fontsize" title="{{ wordSource }}" border="{{ true }}" />
+        </view>
+    </view>
+    <view class="body" style="height: {{calcHeight}}rpx;">
+        <view style="text-align: center; margin-top: 50rpx;">
+            <view sty><text style="font-size: 28rpx;">题型选择</text></view>
+            <view><text style="font-size: 28rpx;">任选一种或者多种</text></view>
+            <view style="margin-top: 50rpx;">
+                <van-checkbox-group value="{{ result }}" bind:change="onChange">
+                    <van-cell-group >
+                        <van-cell
+                        wx:for="{{ list }}"
+                        wx:key="{{ index }}"
+                        title="{{ item }}"
+                        clickable
+                        data-name="{{ index }}"
+                        bind:click="toggle" 
+                        title-class="body-viewcheckbox__cell__title">
+                            <van-checkbox catch:tap="noop" class="checkboxes-{{ index }}" name="{{ item }}" />
+                        </van-cell>
+                    </van-cell-group>
+                </van-checkbox-group>
+            </view>
+        </view>
+        
+    </view>
+    <view class="footer">
+        <view class="footer-view__layout">
+            <van-button type="primary" custom-class="footer-btn__width">练习</van-button>
+            <van-button type="warning" custom-class="footer-btn__width">考试</van-button>
+        </view>
+    </view>
+</view>
