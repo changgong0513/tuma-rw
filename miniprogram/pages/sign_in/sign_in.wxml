@@ -1,6 +1,6 @@
 <view class="demo6">
     <calendar
-        weeks-type="full-en"  
+        weeks-type="cn"  
         cell-size="30" 
         next="{{true}}" prev="{{true}}" show-more-days="{{true}}" 
         calendar-style="demo6-calendar" 
