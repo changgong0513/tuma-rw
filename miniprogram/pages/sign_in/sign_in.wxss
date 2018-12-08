@@ -1,1 +1,19 @@
-/* miniprogram/pages/sign_in/sign_in.wxss */
+.demo6 {
+    padding: 15px;
+}
+
+.demo6-calendar {
+    /*background-color: #fff043;*/
+    padding-top: 10px;    
+    /*box-shadow: 5px 5px 2px 1px rgba(255, 240, 67, 0.5);*/
+}
+
+.demo6-header {
+    font-size: large;
+    color: black;    
+}
+
+.demo6-board {
+    color: #ff8a43;
+    font-weight: bold;
+}
