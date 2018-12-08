@@ -93,5 +93,18 @@ Page({
     checkbox.toggle();
   },
 
-  noop() {}
+  noop() {},
+
+  /**
+   * 用户点击考试按钮
+   */
+  examine: function (event) {
+    console.log("enter examine button event handle method.");
+    const { reciteType } = event.currentTarget.dataset;
+    // 跳转的练习/考试页面
+    wx.navigateTo({
+      url: '../answer/answer?reciteType=' + reciteType
+    })
+    
+  }
 })

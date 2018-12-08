@@ -14,13 +14,16 @@
     "van-tabs": "miniprogram_npm/vant-weapp/tabs/index",
     "van-icon": "miniprogram_npm/vant-weapp/icon/index",
     "van-checkbox": "miniprogram_npm/vant-weapp/checkbox/index",
-    "van-checkbox-group": "miniprogram_npm/vant-weapp/checkbox-group/index"
+    "van-checkbox-group": "miniprogram_npm/vant-weapp/checkbox-group/index",
+    "van-field": "miniprogram_npm/vant-weapp/field/index",
+    "van-toast": "miniprogram_npm/vant-weapp/toast/index"
   },
   "pages": [
     "pages/index/index",
     "pages/words/words",
     "pages/start/start",
-    "pages/answer/answer"
+    "pages/answer/answer",
+    "pages/sign_in/sign_in"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

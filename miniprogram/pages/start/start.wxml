@@ -30,7 +30,11 @@
     <view class="footer">
         <view class="footer-view__layout">
             <van-button type="primary" custom-class="footer-btn__width">练习</van-button>
-            <van-button type="warning" custom-class="footer-btn__width">考试</van-button>
+            <van-button 
+                type="warning" 
+                custom-class="footer-btn__width" 
+                data-recite-type="examine"
+                bind:click="examine">考试</van-button>
         </view>
     </view>
 </view>
