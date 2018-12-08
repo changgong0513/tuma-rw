@@ -190,12 +190,24 @@ Page({
    * 用户点击开始学习按钮
    */
   startStudy: function () {
-    console.log("enter start study button event handle method.");
+    console.log("进入用户点击开始学习按钮事件处理方法。");
 
     // 跳转的开始学习页面
     wx.navigateTo({
       url: '../start/start'
     })
     
+  },
+
+  /**
+   * 用户点击签到按钮
+   */
+  navigateToSign() {
+    console.log("进入用户点击签到按钮事件处理方法。");
+
+    // 跳转的签到页面
+    wx.navigateTo({
+      url: '../sign_in/sign_in'
+    })
   }
 })
