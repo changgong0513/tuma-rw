@@ -2,55 +2,81 @@
     <view class='header'>
         <view>
             <van-cell title="牛津儿童英语" border="{{ false }}" title-class="btnOffset">
-                <view style="display: inline;">
-                    <van-button type="warning" size="mini" slot="right-icon">新建</van-button>
+                
+                <view wx:if="{{ !isEditModel }}" style="display: inline; margin-left: 3rpx;">
+                    <view style="display: inline;">
+                        <van-button 
+                            type="warning" 
+                            size="mini"
+                            bind:click="createWords">新建</van-button>
+                    </view>
+                    <van-button 
+                        type="primary" 
+                        size="mini"
+                        bind:click="eidtWords">编辑</van-button>
                 </view>
-                <view style="display: inline; margin-left: 3rpx;">
-                    <van-button type="primary" size="mini" slot="right-icon">编辑</van-button>
+                <view wx:else style="display: inline; margin-left: 3rpx;">
+                     <view style="display: inline;">
+                        <van-button 
+                            type="warning" 
+                            size="mini" 
+                            bind:click="deleteWords">删除</van-button>
+                    </view>
+                    <van-button 
+                        type="primary" 
+                        size="mini"
+                        bind:click="completeWords">完成</van-button>
                 </view>
             </van-cell>
         </view>
     </view>
     <view class='body'>
-        <audio id="myAudio" src="http://dict.youdao.com/dictvoice?audio=perfect" />
+        <audio id="myAudio" />
         <view>
             <van-tabs animated>
                 <van-tab title="单词本">
                     <view >
-                    <van-row>
-                        <van-col span="4">
-                            <van-cell
-                                border="{{ false }}">
-                                <!-- Cell 单元格：自定义value显示内容 -->
-                                <view>
-                                    <!-- Cell 单元格：Checkbox 复选框 -->
-                                    <van-checkbox 
-                                        value="{{ checked }}"
-                                        shape="square" />
-                                </view>
-                            </van-cell>
-                        </van-col>
-                        <van-col span="20">
-                            <van-cell
-                                border="{{ true }}">
-                                <!-- Cell 单元格：自定义title显示内容 -->
-                                <view slot="title">
-                                    <span style="padding-right: 5px;">perfect</span>
-                                    <view style="display: inline-block;">
-                                        <van-icon name="play" color="#00ff00" bind:click="speakTest" />
+                        <van-row wx:for="{{ wordList }}">
+                            <van-col span="4">
+                                <van-cell
+                                    border="{{ false }}" >
+                                    <!-- Cell 单元格：自定义value显示内容 -->
+                                    <view  wx:if="{{ isEditModel }}">
+                                        <van-checkbox-group value="{{ result }}" bind:change="onChange">
+                                        <!-- Cell 单元格：Checkbox 复选框 -->
+                                            <van-checkbox
+                                                catch:tap="noop"
+                                                shape="square"
+                                                name="chkbox1" />
+                                        </van-checkbox-group>
                                     </view>
+                                </van-cell>
+                            </van-col>
+                            <van-col span="20">
+                                <van-cell
+                                    border="{{ true }}">
+                                    <!-- Cell 单元格：自定义title显示内容 -->
+                                    <view slot="title">
+                                        <span style="padding-right: 5px;">{{ item.word }}</span>
+                                        <view style="display: inline-block;">
+                                            <van-icon 
+                                                name="play" 
+                                                color="#00ff00" 
+                                                data-current-word="{{ item.word }}"
+                                                bind:click="speakTest" />
+                                        </view>
+                                        <view>
+                                            <van-tag round type="primary">考察次数：{{ item.examtimes }}</van-tag>
+                                        </view>
+                                    </view>
+                                    <!-- Cell 单元格：自定义value显示内容 -->
                                     <view>
-                                        <van-tag round type="primary">考察次数：5</van-tag>
+                                        <view style="text-align: left;">{{ item.translate }}</view>
+                                        <!-- <view style="text-align: left;">{{wordTranslate2}}</view> -->
                                     </view>
-                                </view>
-                                <!-- Cell 单元格：自定义value显示内容 -->
-                                <view>
-                                    <view style="text-align: left;">{{wordTranslate1}}</view>
-                                    <view style="text-align: left;">{{wordTranslate2}}</view>
-                                </view>
-                            </van-cell>
-                        </van-col>
-                    </van-row>
+                                </van-cell>
+                            </van-col>
+                        </van-row>
                     </view>
                 </van-tab>
                 <van-tab title="错词本">

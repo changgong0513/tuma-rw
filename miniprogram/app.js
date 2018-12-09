@@ -1,3 +1,7 @@
+wx.cloud.init({
+  env: 'tuma-mina-9f77a9'
+})
+
 App({
 
   /**

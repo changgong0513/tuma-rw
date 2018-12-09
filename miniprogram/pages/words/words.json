@@ -6,5 +6,6 @@
         "van-tag": "vant-weapp/tag",
         "van-badge": "vant-weapp/badge",
         "van-rate": "vant-weapp/rate"
-      }
+      },
+      "onReachBottomDistance": 100
 }
