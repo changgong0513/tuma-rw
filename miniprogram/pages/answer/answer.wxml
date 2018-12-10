@@ -10,6 +10,39 @@
             <van-icon name="arrow" />
         </view>
     </view>
-    <view class="body"></view>
-    <view class="footer"></view>
+    <view class="body" style="height: {{ calcHeight }}rpx">
+        <audio id="myAudio" />
+        <van-row>
+            <van-col span="8">
+                <view style="padding-left: 50rpx;">
+                    <van-icon 
+                        name="play" 
+                        color="#00ff00" 
+                        size="60rpx"
+                        data-current-word="{{ currentDisplayWord }}"
+                        bind:click="speakTest" />
+                </view>
+            </van-col>
+            <van-col span="16">
+                <view>
+                    <view style="text-align: left;">{{ currentDisplayWordTranslate }}</view>
+                </view>
+            </van-col>
+        </van-row>
+        <van-row span="24">
+            <view style="margin-top: 50rpx;">
+                <van-cell-group>
+                    <van-field
+                        value="{{ value }}"
+                        placeholder="请输入听到的单词"
+                        border="{{ false }}"
+                        bind:change="onFieldChange"
+                    />
+                </van-cell-group>
+            </view>
+        </van-row>
+    </view>
+    <view class="footer">
+        <van-button type="primary" block= "{{ true }}">提交</van-button>
+    </view>
 </view>

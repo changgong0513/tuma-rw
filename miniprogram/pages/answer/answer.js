@@ -1,5 +1,11 @@
 import Toast from 'vant-weapp/toast/toast';
 
+// 1. 获取数据库引用
+const db = wx.cloud.database();
+
+// 2. 获取数据库中对应集合引用
+const spellingBeeCollection = db.collection('spelling_bee')
+
 Page({
 
   /**
@@ -10,21 +16,40 @@ Page({
       selectWordType: '选择题',
       currentQuestionIndex: 1,
       totalQuestionCounts: 15,
-      wordTranslate1: "adj.完美的; 正确的; 优秀的; 极好的;",
-      wordTranslate2: "v.使完善; 使完备; 使完美;",
       answerList:["perfect"],
       answerValue: '',
+      page: 0,
+      currentDisplayWord: '',
+      currentDisplayWordTranslate: '',
+      wordList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    this.audioCtx = wx.createInnerAudioContext('myAudio');
+    
+    // 取得指定集合里的所有数据，不超过 20 条
+    spellingBeeCollection
+      .get()
+      .then(res => {
+        // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+        console.log(res.data);
+        this.setData({
+          wordList: res.data, 
+          currentDisplayWord: res.data[0].word,
+          currentDisplayWordTranslate: res.data[0].translate
+        });
+      })
+      .catch(err => {
+        console.error(err)
+      });
+
     this.setData({
       reciteType: options.reciteType
     });
-    
+
   },
 
   /**
@@ -40,7 +65,7 @@ Page({
         console.log("clientWidth=" + clientWidth);
         console.log("clientHeight=" + clientHeight);
         let rpxR = 750 / clientWidth;    //比例
-        let calcHeight = (clientHeight - 140) * rpxR;
+        let calcHeight = (clientHeight - 130) * rpxR;
         console.log("calcHeight=" + calcHeight);
         that.setData({
           calcHeight: calcHeight
@@ -130,4 +155,12 @@ Page({
       });
     }
   },
+
+  speakTest: function (event) {
+    const { currentWord } = event.currentTarget.dataset;
+    const audioSrc = "http://dict.youdao.com/dictvoice?audio=" + currentWord;
+    this.audioCtx.src = audioSrc
+    this.audioCtx.play();
+  },
+
 })
