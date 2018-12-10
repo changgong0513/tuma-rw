@@ -1,0 +1,15 @@
+<view class="main">
+    <view class="header">
+        <view class="header-left">
+            <van-icon name="arrow-left" />
+        </view>
+        <view class="header-center">
+            <text>{{ selectWordType }} ({{currentQuestionIndex}} / {{totalQuestionCounts}})</text>
+        </view>
+        <view class="header-right">
+            <van-icon name="arrow" />
+        </view>
+    </view>
+    <view class="body"></view>
+    <view class="footer"></view>
+</view>
