@@ -24,8 +24,16 @@
                 </view>
             </van-col>
             <van-col span="16">
-                <view>
-                    <view style="text-align: left;">{{ currentDisplayWordTranslate }}</view>
+                <view style="display: flex; flex-direction: row;">
+                    <view wx:if="{{ isHideWord }}" style="margin-left: 20rpx;">
+                        <van-icon name="password-view" bind:click="viewWord" />
+                    </view>
+                    <view wx:else style="display: flex; flex-direction: row;">
+                        <view style="text-align: left;">{{ currentDisplayWordTranslate }}</view>
+                        <view style="margin-left: 20rpx;">
+                            <van-icon name="password-not-view" bind:click="viewWord" />
+                        </view>
+                    </view> 
                 </view>
             </van-col>
         </van-row>

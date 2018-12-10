@@ -22,6 +22,7 @@ Page({
       currentDisplayWord: '',
       currentDisplayWordTranslate: '',
       wordList: [],
+      isHideWord: true,
   },
 
   /**
@@ -29,7 +30,7 @@ Page({
    */
   onLoad: function (options) {
     this.audioCtx = wx.createInnerAudioContext('myAudio');
-    
+
     // 取得指定集合里的所有数据，不超过 20 条
     spellingBeeCollection
       .get()
@@ -162,5 +163,18 @@ Page({
     this.audioCtx.src = audioSrc
     this.audioCtx.play();
   },
+
+  viewWord: function () {
+    let isHideWord = this.data.isHideWord;
+    if (isHideWord) {
+      isHideWord = false;
+    } else {
+      isHideWord = true;
+    }
+
+    this.setData({
+      isHideWord: isHideWord
+    });
+  }
 
 })
