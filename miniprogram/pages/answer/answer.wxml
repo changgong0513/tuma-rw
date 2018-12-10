@@ -51,6 +51,7 @@
         </van-row>
     </view>
     <view class="footer">
-        <van-button type="primary" block= "{{ true }}">提交</van-button>
+        <van-button type="primary" block= "{{ true }}" bind:click="commitWord">提交</van-button>
     </view>
+    <van-toast id="van-toast" />
 </view>

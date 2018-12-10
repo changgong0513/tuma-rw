@@ -142,19 +142,36 @@ Page({
    * 用户点击提交按钮
    */
   commitWord: function (event) {
-    console.log(event);
+    
     const answerValue = this.data.answerValue;
+    const currentValue = this.data.currentDisplayWord;
+
     if (answerValue) {
-      if (answerValue == this.data.answerList[0]) {
-        Toast.success('很棒哦，正确');
+      if (answerValue == currentValue) {
+        Toast('很棒哦，正确');
       } else {
-        Toast.fail('很遗憾，要努力哦');
+        Toast('不对，要加油哦');
       }
     } else {
       Toast({
         message: "记得写答案哦"
       });
     }
+
+    let currentDisplayWord = this.data.wordList[this.data.currentQuestionIndex].word;
+    let currentDisplayWordTranslate = this.data.wordList[this.data.currentQuestionIndex].translate;
+    currentDisplayWordTranslate = currentDisplayWordTranslate ? currentDisplayWordTranslate : '';
+    let currentQuestionIndex = this.data.currentQuestionIndex + 1;
+
+    console.log("currentDisplayWord = " + currentDisplayWord);
+    console.log("currentDisplayWordTranslate = " + currentDisplayWordTranslate);
+    console.log("currentQuestionIndex = " + currentQuestionIndex);
+  
+    this.setData({
+      currentQuestionIndex: currentQuestionIndex,
+      currentDisplayWord: currentDisplayWord, 
+      currentDisplayWordTranslate: currentDisplayWordTranslate
+    });
   },
 
   speakTest: function (event) {
