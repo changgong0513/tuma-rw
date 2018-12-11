@@ -36,7 +36,6 @@ Page({
       .get()
       .then(res => {
         // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
-        console.log(res.data);
         this.setData({
           wordList: res.data, 
           currentDisplayWord: res.data[0].word,
@@ -63,11 +62,8 @@ Page({
       success: function(res) {
         let clientHeight = res.windowHeight;
         let clientWidth = res.windowWidth;
-        console.log("clientWidth=" + clientWidth);
-        console.log("clientHeight=" + clientHeight);
         let rpxR = 750 / clientWidth;    //比例
         let calcHeight = (clientHeight - 130) * rpxR;
-        console.log("calcHeight=" + calcHeight);
         that.setData({
           calcHeight: calcHeight
          });

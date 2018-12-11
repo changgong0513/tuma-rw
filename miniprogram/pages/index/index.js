@@ -133,11 +133,8 @@ Page({
        success: function(res) {
          let clientHeight = res.windowHeight;
          let clientWidth = res.windowWidth;
-         console.log("clientWidth=" + clientWidth);
-         console.log("clientHeight=" + clientHeight);
          let rpxR = 750 / clientWidth;    //比例
          let calcHeight = (clientHeight - 92) * rpxR;
-         console.log("calcHeight=" + calcHeight);
          that.setData({
            calcHeight: calcHeight
           });
