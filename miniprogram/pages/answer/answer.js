@@ -41,7 +41,7 @@ Page({
         this.setData({
           wordList: res.data, 
           currentDisplayWord: res.data[0].word,
-          currentDisplayWordTranslate: res.data[0].translate
+          currentDisplayWordTranslate: res.data[0].word
         });
       })
       .catch(err => {
@@ -149,23 +149,38 @@ Page({
     if (answerValue) {
       // 用户输入值不为空时
       if (answerValue == currentValue) {
-        Toast('很棒哦，正确');
+        Toast({
+          message: '很棒哦，正确',
+          duration: 1000
+        });
         this.answerSoundEffect("right");
       } else {
-        Toast('不对，要加油哦');
+        Toast({
+          message: '不对，要加油哦',
+          duration: 1000
+        });
         this.answerSoundEffect("mistake");
         return;
       }
     } else {
       // 用户输入值为空时
-      Toast("记得写答案哦");
+      Toast({
+        message: '记得写答案哦',
+        duration: 1000
+      });
       return;
     }
 
     // 设置输入框值为空
     this.setData({
-      value: ''
+      value: '',
+      answerValue: ''
     });
+
+    // 3秒后设置设置下一个单词
+    setTimeout(() => {
+      this.nextWord();
+    }, 3000);
   },
 
   /**
@@ -197,10 +212,10 @@ Page({
   },
 
   /**
-   * 
+   * 设置下一个背诵的单词
    */
-  onNextWord: function () {
-    console.log("onNextWord");
+  nextWord: function () {
+    console.log("nextWord");
     // 设置下一个背诵的单词
     const nextDisplayWord = this.data.wordList[this.data.currentQuestionIndex].word;
 

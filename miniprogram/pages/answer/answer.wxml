@@ -39,7 +39,7 @@
             </van-col>
         </van-row>
         <van-row>
-            <van-col span="16">
+            <van-col span="24">
                 <view style="margin-top: 50rpx;">
                     <van-cell-group>
                         <van-field
@@ -52,18 +52,10 @@
                     </van-cell-group>
                 </view>
             </van-col>
-            <van-col span="8">
-                <view style="margin-top: 50rpx;">
-                <van-button 
-                    type="warning"
-                    block= "{{ true }}" 
-                    bind:click="onCommitWord">提交</van-button>
-                </view>
-            </van-col>
         </van-row>
     </view>
     <view class="footer">
-        <van-button type="primary" block= "{{ true }}" bind:click="onNextWord">下一个</van-button>
+        <van-button type="primary" block= "{{ true }}" bind:click="onCommitWord">提交</van-button>
     </view>
     <van-toast id="van-toast" />
 </view>
