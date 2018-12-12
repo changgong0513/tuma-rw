@@ -24,17 +24,17 @@
                         bind:click="onSpeak" />
                 </view>
             </van-col>
-            <van-col span="14">
-                <view style="text-align: left; visibility:{{ visibility }}">{{ currentDisplayWord }}</view>
-            </van-col>
             <van-col span="4">
-                <view wx:if="{{ isHideWord }}" style="margin-left: 20rpx;">
+                <view wx:if="{{ isHideWord }}" style="margin-left: 50rpx;">
                     <van-icon name="password-view" bind:click="onViewWord" />
                 </view>
-                <view wx:else style="margin-left: 20rpx;">
+                <view wx:else style="margin-left: 50rpx;">
                     <van-icon name="password-not-view" bind:click="onViewWord" />
                 </view>
             </van-col>
+            <van-col span="14">
+                <view style="text-align: left; visibility:{{ visibility }}">{{ currentDisplayWord }}</view>
+            </van-col> 
         </van-row>
         <van-row>
             <van-col span="24">
