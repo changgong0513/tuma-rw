@@ -11,8 +11,6 @@
         </view>
     </view>
     <view class="body" style="height: {{ calcHeight }}rpx">
-        <audio id="speakWordAudio" />
-        <audio id="answerAudio" />
         <van-row>
             <van-col span="6">
                 <view style="padding-left: 50rpx;">
