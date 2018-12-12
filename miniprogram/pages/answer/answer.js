@@ -203,10 +203,10 @@ Page({
     let isHideWord = this.data.isHideWord;
     if (isHideWord) {
       isHideWord = false;
-      visibility = "visible";
+      visibility = "hidden";
     } else {
       isHideWord = true;
-      visibility = "hidden";
+      visibility = "visible";
     }
 
     this.setData({
