@@ -36,7 +36,7 @@
             <van-tabs animated>
                 <van-tab title="单词本">
                     <view >
-                        <van-row wx:for="{{ wordList }}">
+                        <van-row wx:for="{{ wordList }}" wx:key="index">
                             <van-col span="4">
                                 <van-cell
                                     border="{{ false }}" >
