@@ -26,7 +26,7 @@ Page({
       currentDisplayWord: '', // 当前显示的单词
       currentDisplayWordTranslate: '', // 当前显示单词的翻译
       wordList: [], // 背诵的单词列表
-      isHideWord: true, // 是否隐藏单词标志
+      visibility: "hidden", // 是否隐藏单词标志
   },
 
   /**
@@ -199,15 +199,19 @@ Page({
    * 事件处理函数--用户点击显示/隐藏朗读单词的icon时
    */
   onViewWord: function () {
+    let visibility = this.data.visibility;
     let isHideWord = this.data.isHideWord;
     if (isHideWord) {
       isHideWord = false;
+      visibility = "visible";
     } else {
       isHideWord = true;
+      visibility = "hidden";
     }
 
     this.setData({
-      isHideWord: isHideWord
+      isHideWord: isHideWord,
+      visibility: visibility
     });
   },
 

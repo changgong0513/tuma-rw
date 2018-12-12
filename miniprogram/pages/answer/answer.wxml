@@ -14,7 +14,7 @@
         <audio id="speakWordAudio" />
         <audio id="answerAudio" />
         <van-row>
-            <van-col span="8">
+            <van-col span="6">
                 <view style="padding-left: 50rpx;">
                     <van-icon 
                         name="play" 
@@ -24,17 +24,15 @@
                         bind:click="onSpeak" />
                 </view>
             </van-col>
-            <van-col span="16">
-                <view style="display: flex; flex-direction: row;">
-                    <view wx:if="{{ isHideWord }}" style="margin-left: 20rpx;">
-                        <van-icon name="password-view" bind:click="onViewWord" />
-                    </view>
-                    <view wx:else style="display: flex; flex-direction: row;">
-                        <view style="text-align: left;">{{ currentDisplayWord }}</view>
-                        <view style="margin-left: 20rpx;">
-                            <van-icon name="password-not-view" bind:click="onViewWord" />
-                        </view>
-                    </view> 
+            <van-col span="14">
+                <view style="text-align: left; visibility:{{ visibility }}">{{ currentDisplayWord }}</view>
+            </van-col>
+            <van-col span="4">
+                <view wx:if="{{ isHideWord }}" style="margin-left: 20rpx;">
+                    <van-icon name="password-view" bind:click="onViewWord" />
+                </view>
+                <view wx:else style="margin-left: 20rpx;">
+                    <van-icon name="password-not-view" bind:click="onViewWord" />
                 </view>
             </van-col>
         </van-row>
