@@ -2,7 +2,7 @@
 const db = wx.cloud.database();
 
 // 2. 获取数据库中对应集合引用
-const spellingBeeCollection = db.collection('spelling_bee')
+const spellingBeeCollection = db.collection('xgnyyqsb_01')
 
 Page({
 
@@ -25,6 +25,7 @@ Page({
     // 取得指定集合里的所有数据，不超过 20 条
     spellingBeeCollection.get().then(res => {
       // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+      console.log(res.data);
       this.setData({
         wordList: res.data
       });
@@ -95,6 +96,7 @@ Page({
 
   speakTest: function (event) {
     const { currentWord } = event.currentTarget.dataset;
+    console.log("currentWord=" + currentWord);
     const audioSrc = "http://dict.youdao.com/dictvoice?audio=" + currentWord;
     this.audioCtx.src = audioSrc
     this.audioCtx.play();

@@ -1,0 +1,8 @@
+<van-picker
+  show-toolbar
+  title="请选择单词来源"
+  columns="{{ columns }}"
+  visible-item-count='3'
+  bind:change="onChange1"
+  bind:confirm="onConfirm"
+  bind:cancel="onCancel"/>

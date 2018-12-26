@@ -1,22 +1,27 @@
 <view class='main'>
     <view class='header'>
       <van-row>
-      <van-col span="6">
-        <view style='text-align: center; margin: 16rpx;'>
-          <!-- <van-button plain type="warning" size='small'>商城</van-button> -->
-        </view>
-      </van-col>
-      <van-col span="12">
-        <view style='text-align: center; margin: 26rpx; font-size: 16px;'>
-          <text>{{wordSource}}</text>
-        </view>
-      </van-col>
-      <van-col span="6">
-        <view style='text-align: center; margin: 16rpx;'>
-         <!-- <van-button plain type="warning" size='small'>设置</van-button> -->
-        </view>
-      </van-col>
-    </van-row>
+        <van-col span="6">
+          <view style='text-align: center; margin: 16rpx;'>
+            <!-- <van-button plain type="warning" size='small'>商城</van-button> -->
+          </view>
+        </van-col>
+        <van-col span="12">
+          <view style='text-align: center;'>
+            <van-cell
+              title="{{wordSource}}"
+              title-class="head-wordSource"
+              is-link
+              url="../picker_word_source/pick_word_source"
+            />
+          </view>
+        </van-col>
+        <van-col span="6">
+          <view style='text-align: center; margin: 16rpx;'>
+          <!-- <van-button plain type="warning" size='small'>设置</van-button> -->
+          </view>
+        </van-col>
+      </van-row>
   </view>
   <view class='body' style="height: {{calcHeight}}rpx;">
     <view>

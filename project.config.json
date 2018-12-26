@@ -11,7 +11,7 @@
 	},
 	"appid": "wxd38025d97750683f",
 	"projectname": "tuma-recite-words",
-	"libVersion": "2.4.1",
+	"libVersion": "2.4.3",
 	"condition": {
 		"search": {
 			"current": -1,

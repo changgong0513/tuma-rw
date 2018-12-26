@@ -1,3 +1,5 @@
+<wxs src="../wxs/utils.wxs" module="utils" />
+
 <view class="van-collapse-item van-hairline--top custom-class">
   <van-cell
     title="{{ title }}"
@@ -6,10 +8,9 @@
     value="{{ value }}"
     label="{{ label }}"
     border="{{ border && expanded }}"
-    class="{{ titleClass }}"
+    class="{{ utils.bem('collapse-item__title', { disabled, expanded }) }}"
     right-icon-class="van-cell__right-icon"
     custom-class="van-cell"
-    arrow-direction="{{ expanded ? 'up' : 'down' }}"
     bind:click="onClick"
   >
     <slot
@@ -28,7 +29,9 @@
   </van-cell>
   <view
     class="van-collapse-item__wrapper"
-    style="max-height: {{ contentHeight }};"
+    style="height: {{ contentHeight }};"
+    animation="{{ animationData }}"
+    bind:transitionend="onTransitionEnd"
   >
     <view
       class="van-collapse-item__content content-class"
