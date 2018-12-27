@@ -1,1 +1,3 @@
-/* miniprogram/pages/picker_word_source/pick_word_source.wxss */
+.card-footer__btn {
+      margin-right: 10rpx;
+  }

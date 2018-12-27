@@ -1,8 +1,26 @@
-<van-picker
-  show-toolbar
-  title="请选择单词来源"
-  columns="{{ columns }}"
-  visible-item-count='3'
-  bind:change="onChange1"
-  bind:confirm="onConfirm"
-  bind:cancel="onCancel"/>
+<view wx:for="{{ wordSourceList }}" wx:key="index">
+  <view>
+    <van-card
+    title="{{item.source_name}}"
+    thumb="../../../images/card_demo.jpg"
+    >
+      <view slot="desc">
+        <view><text>词汇量：{{item.source_word_counts}}</text></view>
+        <view><text>{{item.source_description}}</text></view>
+      </view>
+
+      <view slot="footer">
+        <van-button 
+          plain 
+          type="primary"
+          size="mini" 
+          custom-class="card-footer__btn"
+          data-source-id="{{item.source_id}}" 
+          data-source-name="{{item.source_name}}"
+          bind:click="selectWordSource">选择
+        </van-button>
+        <van-button plain type="danger" size="mini">取消</van-button>
+      </view>
+    </van-card>
+  </view>
+</view>

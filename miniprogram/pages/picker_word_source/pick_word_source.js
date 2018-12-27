@@ -1,25 +1,37 @@
-// miniprogram/pages/picker_word_source/pick_word_source.js
+// 1. 获取数据库引用
+const db = wx.cloud.database();
+
+// 2. 获取数据库中对应集合引用
+const word_source_collection = db.collection('words_source')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // 取得指定集合里的所有数据，不超过 20 条
+    word_source_collection.get().then(res => {
+      // res.data 是一个包含集合中有权限访问的所有记录的数据，不超过 20 条
+      console.log(res.data);
+      this.setData({
+        wordSourceList: res.data
+      });
+    })
   },
 
   /**
@@ -64,17 +76,31 @@ Page({
 
   },
 
-  onChange1(event) {
-    const { value, index } = event.detail;
-    Toast(`Value: ${value}, Index：${index}`);
-  },
+  /**
+   * 用户点击选择
+   * @param {*} event 
+   */
+  selectWordSource: function (event) {
+    // 调试输出信息
+    console.log("进入用户点击选择单词来源按钮事件。");
 
-  onConfirm(event) {
-    const { value, index } = event.detail;
-    Toast(`Value: ${value}, Index：${index}`);
-  },
+    const { sourceId, sourceName } = event.currentTarget.dataset;
 
-  onCancel() {
-    Toast('取消');
+    console.log("选择的单词来源id=" + sourceId + ",单词来源名称=" + sourceName);
+
+    wx.setStorage({
+      key: 'word_source',
+      data: {'sourceId':sourceId, 'sourceName':sourceName}
+    })
+
+    wx.switchTab({
+      url: '../index/index',
+      success: function (msg) {
+        console.log(msg);
+      },
+      fail: function (err) {
+        console.log(err);
+      }
+    });
   }
 })
