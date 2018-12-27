@@ -124,9 +124,10 @@ Page({
     wx.getStorage({
       key: 'word_source',
       success(res) {
-        const { sourceId, sourceName } = res.data;
+        const { sourceId, sourceName, sourceWordCounts } = res.data;
         that.setData({
-          wordSource: sourceName
+          wordSource: sourceName,
+          wordCounts: sourceWordCounts
         });
       }
     });

@@ -17,6 +17,7 @@
           custom-class="card-footer__btn"
           data-source-id="{{item.source_id}}" 
           data-source-name="{{item.source_name}}"
+          data-source-word-counts="{{item.source_word_counts}}"
           bind:click="selectWordSource">选择
         </van-button>
         <van-button plain type="danger" size="mini">取消</van-button>

@@ -84,13 +84,15 @@ Page({
     // 调试输出信息
     console.log("进入用户点击选择单词来源按钮事件。");
 
-    const { sourceId, sourceName } = event.currentTarget.dataset;
+    const { sourceId, sourceName, sourceWordCounts } = event.currentTarget.dataset;
 
-    console.log("选择的单词来源id=" + sourceId + ",单词来源名称=" + sourceName);
+    console.log("选择的单词来源id=" + sourceId 
+    + ",单词来源名称=" + sourceName 
+    + ",单词数量=" + sourceWordCounts);
 
     wx.setStorage({
       key: 'word_source',
-      data: {'sourceId':sourceId, 'sourceName':sourceName}
+      data: {'sourceId':sourceId, 'sourceName':sourceName, 'sourceWordCounts':sourceWordCounts}
     })
 
     wx.switchTab({
