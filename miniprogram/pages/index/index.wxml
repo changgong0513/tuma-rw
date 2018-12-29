@@ -1,12 +1,12 @@
 <view class='main'>
     <view class='header'>
       <van-row>
-        <van-col span="6">
+        <van-col span="4">
           <view style='text-align: center; margin: 16rpx;'>
-            <!-- <van-button plain type="warning" size='small'>商城</van-button> -->
+            <van-button plain type="warning" size='mini'>商城</van-button>
           </view>
         </van-col>
-        <van-col span="12">
+        <van-col span="16">
           <view style='text-align: center;'>
             <van-cell
               title="{{wordSource}}"
@@ -16,9 +16,9 @@
             />
           </view>
         </van-col>
-        <van-col span="6">
+        <van-col span="4">
           <view style='text-align: center; margin: 16rpx;'>
-          <!-- <van-button plain type="warning" size='small'>设置</van-button> -->
+            <van-button plain type="warning" size='mini'>设置</van-button>
           </view>
         </van-col>
       </van-row>

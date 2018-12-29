@@ -131,6 +131,74 @@ Page({
         });
       }
     });
+
+    wx.login({
+      success: (res) => {
+        if(res.code){
+          console.log("用户登录凭证（有效期五分钟）:" + res.code);
+          wx.cloud.callFunction({
+            name: 'jscode2session',
+            data: {
+              code: res.code
+            }
+          }).then(res => {
+            let {openid = '', session_key = ''} = res.result || {}
+            console.log("openid=" + openid + ", " + "session_key=" + session_key)
+            wx.setStorage({
+                  key: 'openid',
+                  data: openid
+                })
+
+            wx.setStorage({
+              key: 'session_key',
+              data: session_key
+            })
+          });
+        }
+      }
+    });
+
+    wx.authorize({
+      scope: 'scope.userInfo',
+      success() {
+        // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+        wx.startRecord()
+      }
+    })
+
+    // // 查看是否授权
+    // wx.getSetting({
+    //   success(res) {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+    //       wx.getUserInfo({
+    //         success(res) {
+    //           console.log(res.userInfo)
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
+
+    // wx.login({
+    //   success: (res) => {
+    //     if(res.code){
+    //       wx.cloud.callFunctions({
+    //         name: 'jscode2session',
+    //         data: {
+    //           code: res.code
+    //         }
+    //       }).then(res => {
+    //         let {openid = '', session_key = ''} = res.result || {}
+    //         console.log(openid, session_key)
+    //         wx.setStorage({
+    //               key: 'openid',
+    //               data: openid
+    //             })
+    //       })
+    //     }
+    //   }
+    // });
   },
 
   /**

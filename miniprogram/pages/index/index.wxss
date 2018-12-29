@@ -10,7 +10,7 @@
 .head-wordSource {
   /* background-color: #ffa589;  */
   height: 92rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
 }
 
 .body {
