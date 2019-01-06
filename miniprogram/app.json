@@ -18,7 +18,8 @@
     "van-field": "miniprogram_npm/vant-weapp/field/index",
     "van-toast": "miniprogram_npm/vant-weapp/toast/index",
     "van-picker": "miniprogram_npm/vant-weapp/picker/index",
-    "van-card": "miniprogram_npm/vant-weapp/card/index"
+    "van-card": "miniprogram_npm/vant-weapp/card/index",
+    "van-popup": "miniprogram_npm/vant-weapp/popup/index"
   },
   "pages": [
     "pages/index/index",

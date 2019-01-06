@@ -23,6 +23,7 @@
   text-align: left; 
   margin: 15rpx 15rpx 15rpx 30rpx; 
   padding-left: 8rpx; 
+  
 }
 
 .footer {
@@ -32,4 +33,11 @@
 
 .startStudyBtn {
   width: 98%;
+}
+
+.center {
+  width: 80%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
 }
